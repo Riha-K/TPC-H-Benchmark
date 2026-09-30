@@ -1,6 +1,6 @@
 # TPC-H Benchmark
 
-Compare DuckDB and PostgreSQL on the [TPC-H](https://www.tpc.org/tpch/) decision-support queries. The notebook builds the data in DuckDB, loads it into PostgreSQL, and times the official 22 queries. It is written to run on Google Colab.
+Latency comparison of DuckDB and PostgreSQL on the official [TPC-H](https://www.tpc.org/tpch/) analytical query set. The notebook builds the data in DuckDB, loads it into PostgreSQL, and times all 22 queries on the same machine. It is written to run on Google Colab.
 
 ## What it does
 
