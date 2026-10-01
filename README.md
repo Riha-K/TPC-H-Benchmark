@@ -58,6 +58,14 @@ Q1 DuckDB: <seconds> PostgreSQL: <seconds | TIMEOUT>
 - If `region` or `nation` row counts look wrong after load, use the truncate and reload cells.
 - CSV exports, a `queries/` folder, and `tpch-kit-master/` are produced while the notebook runs. They are not part of the repo.
 
+## Files
+
+```text
+TPC-H.ipynb                # the benchmark notebook
+TPC.docx                   # written report of the results
+TPC_H_Interview_Guide.html # walkthrough of the design and the numbers
+```
+
 ## References
 
 - [TPC-H specification](https://www.tpc.org/tpch/)
