@@ -1,0 +1,13 @@
+# Produced while the notebook runs, not part of the repo
+*.csv
+queries/
+tpch-kit-master/
+*.duckdb
+*.duckdb.wal
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
