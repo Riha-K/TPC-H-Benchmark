@@ -395,7 +395,7 @@ DuckDB COPY table TO 'table.csv'
 # Official queries
 SELECT query FROM tpch_queries()   -- Q1..Q22 via DuckDB extension
 # Fix reserved word for PostgreSQL
-queries[k] = queries[k].replace("orders", '"orders"')</div>
+queries[k] = re.sub(r'(?<!")\borders\b(?!")', '"orders"', queries[k])</div>
 </div>
 
 <!-- 04 TECH WHY -->
@@ -532,7 +532,7 @@ erDiagram
     </div>
     <div class="qa">
       <div class="q">Q: Why quote "orders" in PostgreSQL?</div>
-      <div class="a"><code>orders</code> can conflict with SQL reserved/keyword usage depending on context. Quoting as <strong><code>"orders"</code></strong> forces PostgreSQL to treat it as an identifier. DuckDB was more forgiving; PG needed the quotes — so I normalized queries with <code>.replace("orders", '"orders"')</code>.</div>
+      <div class="a"><code>orders</code> can conflict with SQL reserved/keyword usage depending on context. Quoting as <strong><code>"orders"</code></strong> forces PostgreSQL to treat it as an identifier. DuckDB was more forgiving; PG needed the quotes — so I quote only a bare <code>orders</code> word. A second pass leaves <code>"orders"</code> alone.</div>
     </div>
   </div>
 </div>
