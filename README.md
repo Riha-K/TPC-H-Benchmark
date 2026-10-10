@@ -57,6 +57,7 @@ Q1 DuckDB: <seconds> PostgreSQL: <seconds | TIMEOUT>
 - Quote `"orders"` in PostgreSQL. Unquoted `orders` can hit a reserved word. Quote only a bare `orders` word, so a second pass does not turn `"orders"` into `""orders""`.
 - If `region` or `nation` row counts look wrong after load, use the truncate and reload cells.
 - CSV exports, a `queries/` folder, and `tpch-kit-master/` are produced while the notebook runs. They are not part of the repo.
+- The timed comparison is the same 22 queries on DuckDB and PostgreSQL at scale factor 5.
 
 ## Files
 
