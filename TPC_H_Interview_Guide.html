@@ -826,6 +826,19 @@ for name, query in queries.items():
       </ul>
     </div>
   </div>
+
+  <div class="subsection" style="margin-top:28px;">
+    <h3>30-second “what I learned” script</h3>
+    <div class="script-box">
+      “I ran the same TPC-H SF=5 workload on DuckDB and PostgreSQL on one machine.
+      DuckDB’s columnar engine was much faster on the heavy analytical joins.
+      PostgreSQL needed careful indexing and still timed out on the hardest queries under a 5-minute cap.
+      The takeaway is not that Postgres is bad — it is a row-store OLTP engine — but that engine shape must match the query shape.”
+    </div>
+    <div class="tip-box">
+      <strong>If they push fairness:</strong> admit default Postgres settings and the CSV load path bias the comparison; list the tuning steps above as the next experiment.
+    </div>
+  </div>
 </div>
 
 <!-- 13 MORE PROJECT Qs -->
