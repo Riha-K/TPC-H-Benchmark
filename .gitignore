@@ -1,9 +1,11 @@
-# Produced while the notebook runs, not part of the repo
+# Produced while the notebook runs; keep these out of the repo
 *.csv
 queries/
 tpch-kit-master/
 *.duckdb
 *.duckdb.wal
+*.parquet
+
 
 # Jupyter
 .ipynb_checkpoints/
