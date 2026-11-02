@@ -72,3 +72,5 @@ TPC_H_Interview_Guide.html # walkthrough of the design and the numbers
 - [TPC-H specification](https://www.tpc.org/tpch/)
 - [DuckDB TPC-H extension](https://duckdb.org/docs/extensions/tpch)
 - [PostgreSQL documentation](https://www.postgresql.org/docs/)
+
+<!-- refreshed: 2026-11-02 -->
