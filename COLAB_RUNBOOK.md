@@ -20,8 +20,8 @@ Practical checklist for running the DuckDB vs PostgreSQL notebook on Google Cola
 
 ## How to talk about results
 
-- DuckDB is a **columnar OLAP** engine — strong on analytical scans/joins at SF=5 on one machine.
-- PostgreSQL is a **row-store** engine — fair comparisons need tuning (`work_mem`, indexes, warm cache).
+- DuckDB is a **columnar OLAP** engine - strong on analytical scans/joins at SF=5 on one machine.
+- PostgreSQL is a **row-store** engine - fair comparisons need tuning (`work_mem`, indexes, warm cache).
 - Do **not** claim “Postgres is always slower.” Say: under *this* setup and timeout, columnar wins on the heavy TPC-H queries.
 
 ## Common failure modes
@@ -39,6 +39,6 @@ Default Colab Postgres settings and the CSV load path bias the comparison toward
 
 ## Related files
 
-- `TPC-H.ipynb` — executable benchmark
-- `README.md` — short project overview
-- `TPC_H_Interview_Guide.html` — interview pitch and Q&A
+- `TPC-H.ipynb` - executable benchmark
+- `README.md` - short project overview
+- `TPC_H_Interview_Guide.html` - interview pitch and Q&A

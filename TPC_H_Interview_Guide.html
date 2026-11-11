@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TPC-H Benchmark — Project Interview Guide | Riha Sanjay Kokode</title>
+<title>TPC-H Benchmark - Project Interview Guide | Riha Sanjay Kokode</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0a0c10;--surface:#111318;--card:#161a22;--border:#232836;--text:#dde3f0;--muted:#6b7694;--bright:#fff;--blue:#5b9cf6;--gold:#f0b429;--green:#3ecf8e;--red:#f04e4e;--purple:#b57bee;--teal:#38d9d9;}
@@ -127,7 +127,7 @@ body{background:var(--bg);color:var(--text);font-family:'Lora',Georgia,serif;fon
 <div class="hero">
   <div class="hero-eyebrow">Project Interview Study Guide</div>
   <h1>TPC-H Benchmark<br><em>DuckDB vs PostgreSQL</em></h1>
-  <p class="hero-sub">Complete interview prep for Riha’s TPC-H project — what it is, why each technology was chosen, schema, benchmarking method, real results, challenges, and every question an interviewer is likely to ask. The notebook default is scale factor 5, run on Google Colab.</p>
+  <p class="hero-sub">Complete interview prep for Riha’s TPC-H project - what it is, why each technology was chosen, schema, benchmarking method, real results, challenges, and every question an interviewer is likely to ask. The notebook default is scale factor 5, run on Google Colab.</p>
   <div class="hero-tags">
     <span class="hero-tag">TPC-H</span>
     <span class="hero-tag">DuckDB</span>
@@ -148,7 +148,7 @@ body{background:var(--bg);color:var(--text);font-family:'Lora',Georgia,serif;fon
   <p class="sec-intro">Have a <strong>45–60 second</strong> version ready. Then go deeper only if they ask.</p>
 
   <div class="script-box">
-    “I worked on a <strong>TPC-H database performance benchmarking project</strong>. TPC-H is an industry-standard decision-support benchmark with a fixed schema and 22 analytical SQL queries. I generated about <strong>5 GB of TPC-H data</strong> using DuckDB’s <code>dbgen</code>, exported the tables to CSV, loaded them into PostgreSQL, and then ran the official query set on both engines on Google Colab. I compared query latency query-by-query, added indexes and <code>ANALYZE</code> for PostgreSQL, and used a 5-minute timeout to handle long-running queries. The main finding was that <strong>DuckDB was consistently much faster</strong> on these analytical workloads — which makes sense because DuckDB is columnar and OLAP-oriented, while PostgreSQL is a general-purpose row-oriented RDBMS.”
+    “I worked on a <strong>TPC-H database performance benchmarking project</strong>. TPC-H is an industry-standard decision-support benchmark with a fixed schema and 22 analytical SQL queries. I generated about <strong>5 GB of TPC-H data</strong> using DuckDB’s <code>dbgen</code>, exported the tables to CSV, loaded them into PostgreSQL, and then ran the official query set on both engines on Google Colab. I compared query latency query-by-query, added indexes and <code>ANALYZE</code> for PostgreSQL, and used a 5-minute timeout to handle long-running queries. The main finding was that <strong>DuckDB was consistently much faster</strong> on these analytical workloads - which makes sense because DuckDB is columnar and OLAP-oriented, while PostgreSQL is a general-purpose row-oriented RDBMS.”
   </div>
 
   <div class="six-grid">
@@ -184,13 +184,13 @@ body{background:var(--bg);color:var(--text);font-family:'Lora',Georgia,serif;fon
     </div>
     <div class="concept-card green">
       <h4>What my project measured</h4>
-      <p>I focused on a practical subset: <strong>generate data → load two engines → time Q1–Q22</strong> and compare DuckDB vs PostgreSQL latency. Not a full audited TPC publication run — an engineering comparison study.</p>
+      <p>I focused on a practical subset: <strong>generate data → load two engines → time Q1–Q22</strong> and compare DuckDB vs PostgreSQL latency. Not a full audited TPC publication run - an engineering comparison study.</p>
     </div>
     <div class="concept-card purple">
       <h4>TPC-H vs TPC-C (bonus)</h4>
       <ul>
-        <li><strong>TPC-C:</strong> OLTP — many short transactions</li>
-        <li><strong>TPC-H:</strong> OLAP — fewer, heavy analytical queries with joins/aggregations</li>
+        <li><strong>TPC-C:</strong> OLTP - many short transactions</li>
+        <li><strong>TPC-H:</strong> OLAP - fewer, heavy analytical queries with joins/aggregations</li>
       </ul>
     </div>
   </div>
@@ -202,7 +202,7 @@ body{background:var(--bg);color:var(--text);font-family:'Lora',Georgia,serif;fon
     </div>
     <div class="qa">
       <div class="q">Q: Is your result an official TPC-H score?</div>
-      <div class="a"><strong>No.</strong> Official TPC results have strict audit rules, pricing metrics, and run methodology. My project is a <strong>controlled latency comparison</strong> of two engines on TPC-H queries/data at SF=5 in Colab — useful for learning and engineering insight, not a published TPC metric.</div>
+      <div class="a"><strong>No.</strong> Official TPC results have strict audit rules, pricing metrics, and run methodology. My project is a <strong>controlled latency comparison</strong> of two engines on TPC-H queries/data at SF=5 in Colab - useful for learning and engineering insight, not a published TPC metric.</div>
     </div>
   </div>
 </div>
@@ -211,10 +211,10 @@ body{background:var(--bg);color:var(--text);font-family:'Lora',Georgia,serif;fon
 <div id="pipeline" class="section">
   <div class="sec-label">03</div>
   <h2 class="sec-title">End-to-End Pipeline (Diagram)</h2>
-  <p class="sec-intro">This is the <strong>high-level map</strong> of the project. Memorize it — interviewers often ask you to draw the flow.</p>
+  <p class="sec-intro">This is the <strong>high-level map</strong> of the project. Memorize it - interviewers often ask you to draw the flow.</p>
 
   <div class="diagram-box">
-    <div class="caption">Figure A — System architecture flowchart</div>
+    <div class="caption">Figure A - System architecture flowchart</div>
     <pre class="mermaid">
 flowchart LR
   A[Google Colab<br/>Python Notebook] --> B[Install deps<br/>DuckDB · pandas · psycopg2 · PostgreSQL]
@@ -253,7 +253,7 @@ flowchart LR
 <!-- 03b WORKFLOW DETAILED -->
 <div id="workflow" class="section">
   <div class="sec-label">03B</div>
-  <h2 class="sec-title">Full Workflow — Step by Step</h2>
+  <h2 class="sec-title">Full Workflow - Step by Step</h2>
   <p class="sec-intro">This is the <strong>complete explanation</strong> of what the notebook does, in interview language. If they say “walk me through the workflow,” use this section.</p>
 
   <div class="vflow">
@@ -278,7 +278,7 @@ flowchart LR
     <div class="vflow-step">
       <div class="vn">STEP 04</div>
       <h5>Create PostgreSQL schema (DDL)</h5>
-      <p>Connect with psycopg2 and <code>CREATE TABLE</code> for region, nation, supplier, customer, part, partsupp, orders, lineitem — matching TPC-H column types (INTEGER, DOUBLE PRECISION, DATE, TEXT, CHAR).</p>
+      <p>Connect with psycopg2 and <code>CREATE TABLE</code> for region, nation, supplier, customer, part, partsupp, orders, lineitem - matching TPC-H column types (INTEGER, DOUBLE PRECISION, DATE, TEXT, CHAR).</p>
     </div>
     <div class="vflow-arrow">↓</div>
     <div class="vflow-step">
@@ -314,12 +314,12 @@ flowchart LR
     <div class="vflow-step">
       <div class="vn">STEP 10</div>
       <h5>Interpret results</h5>
-      <p>Compare engines: DuckDB typically seconds; PostgreSQL tens of seconds to minutes (or timeout). Explain via columnar OLAP vs row-store RDBMS architecture — not “Postgres is bad,” but “wrong tool shape for pure analytics without deep tuning.”</p>
+      <p>Compare engines: DuckDB typically seconds; PostgreSQL tens of seconds to minutes (or timeout). Explain via columnar OLAP vs row-store RDBMS architecture - not “Postgres is bad,” but “wrong tool shape for pure analytics without deep tuning.”</p>
     </div>
   </div>
 
   <div class="diagram-box">
-    <div class="caption">Figure B — Benchmark sequence (one query)</div>
+    <div class="caption">Figure B - Benchmark sequence (one query)</div>
     <pre class="mermaid">
 sequenceDiagram
   participant N as Notebook
@@ -339,7 +339,7 @@ sequenceDiagram
   </div>
 
   <div class="diagram-box">
-    <div class="caption">Figure C — Data movement path</div>
+    <div class="caption">Figure C - Data movement path</div>
     <pre class="mermaid">
 flowchart TB
   subgraph GEN["Generation layer"]
@@ -366,7 +366,7 @@ flowchart TB
   </div>
 
   <div class="script-box">
-    “The workflow has three phases. <strong>Phase 1 — Generate:</strong> I use DuckDB’s TPC-H extension to create SF=5 data. <strong>Phase 2 — Transfer:</strong> I export CSVs and bulk-load PostgreSQL with COPY, then validate counts and add join indexes. <strong>Phase 3 — Benchmark:</strong> I run the same official 22 queries on both engines, time them, handle PostgreSQL timeouts with rollback, and compare latencies to study OLAP vs general-purpose RDBMS behavior.”
+    “The workflow has three phases. <strong>Phase 1 - Generate:</strong> I use DuckDB’s TPC-H extension to create SF=5 data. <strong>Phase 2 - Transfer:</strong> I export CSVs and bulk-load PostgreSQL with COPY, then validate counts and add join indexes. <strong>Phase 3 - Benchmark:</strong> I run the same official 22 queries on both engines, time them, handle PostgreSQL timeouts with rollback, and compare latencies to study OLAP vs general-purpose RDBMS behavior.”
   </div>
 
   <div class="qa-block">
@@ -401,7 +401,7 @@ queries[k] = re.sub(r'(?<!")\borders\b(?!")', '"orders"', queries[k])</div>
 <!-- 04 TECH WHY -->
 <div id="tech" class="section">
   <div class="sec-label">04</div>
-  <h2 class="sec-title">Technologies — Why Exactly These?</h2>
+  <h2 class="sec-title">Technologies - Why Exactly These?</h2>
   <p class="sec-intro">This is the section interviewers drill hardest: <strong>“Why X? Why not Y?”</strong> Defend every choice.</p>
 
   <div class="comparison-table">
@@ -442,7 +442,7 @@ queries[k] = re.sub(r'(?<!")\borders\b(?!")', '"orders"', queries[k])</div>
           <td><strong>pandas</strong></td>
           <td>Quick table inspection</td>
           <td><code>fetchdf()</code> from DuckDB for easy <code>LIMIT</code> peeks during validation</td>
-          <td>Not used as the compute engine — just inspection</td>
+          <td>Not used as the compute engine - just inspection</td>
         </tr>
         <tr>
           <td><strong>CSV bridge</strong></td>
@@ -463,7 +463,7 @@ queries[k] = re.sub(r'(?<!")\borders\b(?!")', '"orders"', queries[k])</div>
   <div class="qa-block">
     <div class="qa">
       <div class="q">Q: Why DuckDB for generation instead of the original TPC dbgen tool?</div>
-      <div class="a">DuckDB’s <code>INSTALL tpch; CALL dbgen(sf=N)</code> generates the full schema in one call inside the notebook — <strong>no separate C tool chain</strong>. Perfect for Colab reproducibility. The data follows TPC-H scale rules.</div>
+      <div class="a">DuckDB’s <code>INSTALL tpch; CALL dbgen(sf=N)</code> generates the full schema in one call inside the notebook - <strong>no separate C tool chain</strong>. Perfect for Colab reproducibility. The data follows TPC-H scale rules.</div>
     </div>
     <div class="qa">
       <div class="q">Q: Why compare DuckDB and PostgreSQL specifically?</div>
@@ -494,7 +494,7 @@ queries[k] = re.sub(r'(?<!")\borders\b(?!")', '"orders"', queries[k])</div>
     <div class="schema-card"><h5>part</h5><p>Parts catalog. Grows with SF.</p></div>
     <div class="schema-card"><h5>partsupp</h5><p>Which supplier supplies which part + cost/qty.</p></div>
     <div class="schema-card"><h5>orders</h5><p>Customer orders. Large. Reserved word in SQL!</p></div>
-    <div class="schema-card"><h5>lineitem</h5><p>Largest table — order line details. Dominates query cost.</p></div>
+    <div class="schema-card"><h5>lineitem</h5><p>Largest table - order line details. Dominates query cost.</p></div>
   </div>
 
   <div class="tip-box">
@@ -502,7 +502,7 @@ queries[k] = re.sub(r'(?<!")\borders\b(?!")', '"orders"', queries[k])</div>
   </div>
 
   <div class="diagram-box">
-    <div class="caption">Figure D — TPC-H schema ER (interview whiteboard version)</div>
+    <div class="caption">Figure D - TPC-H schema ER (interview whiteboard version)</div>
     <pre class="mermaid">
 erDiagram
   REGION ||--o{ NATION : contains
@@ -528,11 +528,11 @@ erDiagram
   <div class="qa-block">
     <div class="qa">
       <div class="q">Q: Which table is usually the bottleneck?</div>
-      <div class="a"><strong>lineitem</strong> — it is the largest fact-like table. Most heavy TPC-H queries scan/join it. If lineitem is slow, the whole benchmark is slow.</div>
+      <div class="a"><strong>lineitem</strong> - it is the largest fact-like table. Most heavy TPC-H queries scan/join it. If lineitem is slow, the whole benchmark is slow.</div>
     </div>
     <div class="qa">
       <div class="q">Q: Why quote "orders" in PostgreSQL?</div>
-      <div class="a"><code>orders</code> can conflict with SQL reserved/keyword usage depending on context. Quoting as <strong><code>"orders"</code></strong> forces PostgreSQL to treat it as an identifier. DuckDB was more forgiving; PG needed the quotes — so I quote only a bare <code>orders</code> word. A second pass leaves <code>"orders"</code> alone.</div>
+      <div class="a"><code>orders</code> can conflict with SQL reserved/keyword usage depending on context. Quoting as <strong><code>"orders"</code></strong> forces PostgreSQL to treat it as an identifier. DuckDB was more forgiving; PG needed the quotes - so I quote only a bare <code>orders</code> word. A second pass leaves <code>"orders"</code> alone.</div>
     </div>
   </div>
 </div>
@@ -567,7 +567,7 @@ erDiagram
       <div class="a">SF=1 is too small to show meaningful performance gaps on modern machines. SF=5 stresses joins/scans enough to expose DuckDB vs PostgreSQL differences while still fitting in Colab for a student project.</div>
     </div>
     <div class="qa">
-      <div class="q">Q: Your resume mentions SF 1 to 50 — reconcile that.</div>
+      <div class="q">Q: Your resume mentions SF 1 to 50 - reconcile that.</div>
       <div class="a">I evaluated scalability across scale factors; the main notebook run documented in detail uses <strong>SF=5</strong> as a practical Colab default. Larger SFs (10–50) increase generation/load/query time and can hit Colab memory/disk limits.</div>
     </div>
   </div>
@@ -576,7 +576,7 @@ erDiagram
 <!-- 07 COMPARE -->
 <div id="compare" class="section">
   <div class="sec-label">07</div>
-  <h2 class="sec-title">DuckDB vs PostgreSQL — How to Explain Results</h2>
+  <h2 class="sec-title">DuckDB vs PostgreSQL - How to Explain Results</h2>
   <p class="sec-intro">Don’t just say “DuckDB was faster.” Explain <strong>why the architecture causes that</strong>.</p>
 
   <div class="comparison-table">
@@ -586,14 +586,14 @@ erDiagram
         <tr><td><strong>Primary design</strong></td><td>Embedded OLAP / analytics</td><td>General-purpose RDBMS (OLTP + general SQL)</td></tr>
         <tr><td><strong>Storage style</strong></td><td>Columnar (great for aggregates/scans)</td><td>Row-oriented (great for point lookups / transactions)</td></tr>
         <tr><td><strong>Execution</strong></td><td>Vectorized execution, tight in-process</td><td>Classic volcano-style executor; client/server process</td></tr>
-        <tr><td><strong>TPC-H fit</strong></td><td>Excellent — large scans, joins, GROUP BYs</td><td>Can do it, but needs tuning/indexes; heavier for pure analytics</td></tr>
+        <tr><td><strong>TPC-H fit</strong></td><td>Excellent - large scans, joins, GROUP BYs</td><td>Can do it, but needs tuning/indexes; heavier for pure analytics</td></tr>
         <tr><td><strong>My observed trend</strong></td><td>Seconds (often &lt;5s)</td><td>Tens of seconds to minutes; some TIMEOUT / very slow (e.g. Q9)</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="highlight-box">
-    <strong>Fairness caveat (say this in interview):</strong> PostgreSQL was running in Colab with basic indexes I created — not a fully tuned warehouse setup (no partitioning, limited memory tuning, no columnar extension). DuckDB is purpose-built for this workload. The comparison shows architectural tendency, not that “PostgreSQL is bad.”
+    <strong>Fairness caveat (say this in interview):</strong> PostgreSQL was running in Colab with basic indexes I created - not a fully tuned warehouse setup (no partitioning, limited memory tuning, no columnar extension). DuckDB is purpose-built for this workload. The comparison shows architectural tendency, not that “PostgreSQL is bad.”
   </div>
 
   <div class="qa-block">
@@ -626,7 +626,7 @@ pg_con.commit()</div>
     <div class="qa-block">
       <div class="qa">
         <div class="q">Q: What is COPY and why is it fast?</div>
-        <div class="a"><code>COPY</code> is PostgreSQL’s bulk load/export command. It bypasses per-row INSERT overhead and parses CSV in a streaming fashion — orders of magnitude faster for millions of rows.</div>
+        <div class="a"><code>COPY</code> is PostgreSQL’s bulk load/export command. It bypasses per-row INSERT overhead and parses CSV in a streaming fashion - orders of magnitude faster for millions of rows.</div>
       </div>
     </div>
   </div>
@@ -651,7 +651,7 @@ ANALYZE;  -- refresh planner statistics</div>
       </div>
       <div class="qa">
         <div class="q">Q: Can indexes make things slower?</div>
-        <div class="a">Yes for writes (maintenance cost), and sometimes the planner picks a bad index nested-loop when a sequential scan + hash join would be better. For read-mostly benchmarks after load, indexes are usually helpful — but not magic.</div>
+        <div class="a">Yes for writes (maintenance cost), and sometimes the planner picks a bad index nested-loop when a sequential scan + hash join would be better. For read-mostly benchmarks after load, indexes are usually helpful - but not magic.</div>
       </div>
     </div>
   </div>
@@ -680,16 +680,16 @@ for name, query in queries.items():
 <div id="results" class="section">
   <div class="sec-label">09</div>
   <h2 class="sec-title">Sample Results from Your Run (SF=5)</h2>
-  <p class="sec-intro">Use these as talking points — approximate latencies from the notebook output.</p>
+  <p class="sec-intro">Use these as talking points - approximate latencies from the notebook output.</p>
 
   <div class="comparison-table">
     <table>
       <thead><tr><th>Query</th><th>DuckDB</th><th>PostgreSQL</th><th>Takeaway</th></tr></thead>
       <tbody>
-        <tr><td><strong>Q1</strong></td><td>~1.8 s</td><td>~36 s</td><td>Classic aggregation on lineitem — columnar wins</td></tr>
+        <tr><td><strong>Q1</strong></td><td>~1.8 s</td><td>~36 s</td><td>Classic aggregation on lineitem - columnar wins</td></tr>
         <tr><td><strong>Q2</strong></td><td>~0.4 s</td><td>TIMEOUT</td><td>PG plan struggled badly without deeper tuning</td></tr>
         <tr><td><strong>Q3</strong></td><td>~1.3 s</td><td>~47 s</td><td>Shipping priority style join/agg</td></tr>
-        <tr><td><strong>Q6</strong></td><td>~0.3 s</td><td>~28 s</td><td>Selective scan + sum — still much faster in DuckDB</td></tr>
+        <tr><td><strong>Q6</strong></td><td>~0.3 s</td><td>~28 s</td><td>Selective scan + sum - still much faster in DuckDB</td></tr>
         <tr><td><strong>Q9</strong></td><td>~4.8 s</td><td>~1661 s (~28 min)</td><td>Heavy profit query; extreme gap</td></tr>
         <tr><td><strong>Q11</strong></td><td>~0.5 s</td><td>~15 s</td><td>Smallest PG gap among completed ones shown</td></tr>
       </tbody>
@@ -700,7 +700,7 @@ for name, query in queries.items():
 
   <div class="qa-block">
     <div class="qa">
-      <div class="q">Q: Your notebook errored on Q13 — what happened?</div>
+      <div class="q">Q: Your notebook errored on Q13 - what happened?</div>
       <div class="a">After globally replacing <code>orders</code> with <code>"orders"</code>, DuckDB’s parser hit a <strong>syntax error</strong> on Q13 (over-quoting / context where DuckDB didn’t accept the quoted form the same way). That’s a real engineering lesson: blind string replace across SQL dialects is brittle. Fix would be dialect-specific rewriting or separate query versions per engine.</div>
     </div>
   </div>
@@ -719,7 +719,7 @@ for name, query in queries.items():
     </div>
     <div class="qa">
       <div class="q">Q: Any data loading issues?</div>
-      <div class="a">Yes — for small dimension tables, accidental re-runs could inflate counts (<code>region</code> should be 5, <code>nation</code> 25). I added validation <code>COUNT(*)</code> checks and truncate/reload cells to fix bad loads.</div>
+      <div class="a">Yes - for small dimension tables, accidental re-runs could inflate counts (<code>region</code> should be 5, <code>nation</code> 25). I added validation <code>COUNT(*)</code> checks and truncate/reload cells to fix bad loads.</div>
     </div>
     <div class="qa">
       <div class="q">Q: SQL portability issue?</div>
@@ -745,7 +745,7 @@ for name, query in queries.items():
     </div>
     <div class="qa">
       <div class="q">Q: Row store vs column store?</div>
-      <div class="a"><strong>Row store:</strong> stores all columns of a row together — great when you need whole rows. <strong>Column store:</strong> stores each column together — great when queries touch few columns over many rows (aggregations). TPC-H favors columnar.</div>
+      <div class="a"><strong>Row store:</strong> stores all columns of a row together - great when you need whole rows. <strong>Column store:</strong> stores each column together - great when queries touch few columns over many rows (aggregations). TPC-H favors columnar.</div>
     </div>
     <div class="qa">
       <div class="q">Q: What is a query planner / optimizer?</div>
@@ -753,14 +753,14 @@ for name, query in queries.items():
     </div>
     <div class="qa">
       <div class="q">Q: Hash join vs nested loop vs merge join?</div>
-      <div class="a"><strong>Nested loop:</strong> for each outer row, find matches (good if inner is indexed &amp; small). <strong>Hash join:</strong> build hash table on one side — great for large equijoins. <strong>Merge join:</strong> both sides sorted on join key. TPC-H large joins often want hash joins.</div>
+      <div class="a"><strong>Nested loop:</strong> for each outer row, find matches (good if inner is indexed &amp; small). <strong>Hash join:</strong> build hash table on one side - great for large equijoins. <strong>Merge join:</strong> both sides sorted on join key. TPC-H large joins often want hash joins.</div>
     </div>
     <div class="qa">
       <div class="q">Q: What is cardinality?</div>
-      <div class="a">Estimated number of rows produced by an operator. Wrong cardinality estimates cause the optimizer to pick terrible plans — common root cause of “this query is mysteriously slow.”</div>
+      <div class="a">Estimated number of rows produced by an operator. Wrong cardinality estimates cause the optimizer to pick terrible plans - common root cause of “this query is mysteriously slow.”</div>
     </div>
     <div class="qa">
-      <div class="q">Q: Primary key / foreign key — did you enforce them?</div>
+      <div class="q">Q: Primary key / foreign key - did you enforce them?</div>
       <div class="a">In the notebook schema I created tables with columns matching TPC-H, focused on load + benchmark speed. Strict PK/FK constraints can slow bulk load; in a production schema I’d add them for integrity after/during controlled loads. Be honest: this project prioritized benchmarking throughput over full constraint enforcement.</div>
     </div>
     <div class="qa">
@@ -768,7 +768,7 @@ for name, query in queries.items():
       <div class="a"><strong>EXPLAIN</strong> shows the planned query tree. <strong>EXPLAIN ANALYZE</strong> actually runs it and shows real timings/row counts. I’d use this next to debug slow PostgreSQL queries (e.g. Q2, Q9).</div>
     </div>
     <div class="qa">
-      <div class="q">Q: ACID — does it matter for TPC-H?</div>
+      <div class="q">Q: ACID - does it matter for TPC-H?</div>
       <div class="a">TPC-H is mostly read/analytical. ACID matters more for OLTP. Still, PostgreSQL’s MVCC/transaction model has overhead characteristics different from DuckDB’s analytical execution engine.</div>
     </div>
     <div class="qa">
@@ -776,7 +776,7 @@ for name, query in queries.items():
       <div class="a">PostgreSQL default is <strong>B-Tree</strong> (what I created). Hash indexes for equality; BRIN for huge append-only tables; bitmap scans appear in plans when combining conditions. For join keys, B-Tree is the standard choice.</div>
     </div>
     <div class="qa">
-      <div class="q">Q: Normalization — is TPC-H normalized?</div>
+      <div class="q">Q: Normalization - is TPC-H normalized?</div>
       <div class="a">TPC-H is a mostly normalized schema (separate nation/region/customer/orders/lineitem). Analytical systems sometimes denormalize for speed; TPC-H deliberately stresses joins.</div>
     </div>
   </div>
@@ -833,7 +833,7 @@ for name, query in queries.items():
       “I ran the same TPC-H SF=5 workload on DuckDB and PostgreSQL on one machine.
       DuckDB’s columnar engine was much faster on the heavy analytical joins.
       PostgreSQL needed careful indexing and still timed out on the hardest queries under a 5-minute cap.
-      The takeaway is not that Postgres is bad — it is a row-store OLTP engine — but that engine shape must match the query shape.”
+      The takeaway is not that Postgres is bad - it is a row-store OLTP engine - but that engine shape must match the query shape.”
     </div>
     <div class="tip-box">
       <strong>If they push fairness:</strong> admit default Postgres settings and the CSV load path bias the comparison; list the tuning steps above as the next experiment.
@@ -865,15 +865,15 @@ for name, query in queries.items():
     </div>
     <div class="qa">
       <div class="q">Q: Explain Q1 in plain English.</div>
-      <div class="a">Pricing summary report: aggregate lineitem quantities/prices grouped by return flag and line status for shipments in a date window — a sequential scan + aggregation heavy query.</div>
+      <div class="a">Pricing summary report: aggregate lineitem quantities/prices grouped by return flag and line status for shipments in a date window - a sequential scan + aggregation heavy query.</div>
     </div>
     <div class="qa">
       <div class="q">Q: Explain Q6 in plain English.</div>
-      <div class="a">Forecasting revenue change: sum discounted extended price for lineitems with discount/quantity/date predicates — selective scan over lineitem.</div>
+      <div class="a">Forecasting revenue change: sum discounted extended price for lineitems with discount/quantity/date predicates - selective scan over lineitem.</div>
     </div>
     <div class="qa">
       <div class="q">Q: Why is Q9 expensive?</div>
-      <div class="a">Product-type profit query joins lineitem with supplier/nation/part/partsupp and computes profit aggregates — large intermediate data; my PG run took ~28 minutes vs ~5 seconds in DuckDB.</div>
+      <div class="a">Product-type profit query joins lineitem with supplier/nation/part/partsupp and computes profit aggregates - large intermediate data; my PG run took ~28 minutes vs ~5 seconds in DuckDB.</div>
     </div>
     <div class="qa">
       <div class="q">Q: Did you use primary keys?</div>
@@ -884,11 +884,11 @@ for name, query in queries.items():
       <div class="a">AI systems sit on data platforms. Understanding <strong>analytical query performance, storage formats, and benchmarking</strong> matters for feature stores, RAG metadata stores, training-data lakes, and evaluating whether a DB can serve offline/online analytical workloads.</div>
     </div>
     <div class="qa">
-      <div class="q">Q: DuckDB is in-process — advantages?</div>
+      <div class="q">Q: DuckDB is in-process - advantages?</div>
       <div class="a">No separate server to manage, low latency between Python and SQL engine, simple deployment in notebooks, great for local analytics and embedded use cases.</div>
     </div>
     <div class="qa">
-      <div class="q">Q: PostgreSQL client/server — advantages?</div>
+      <div class="q">Q: PostgreSQL client/server - advantages?</div>
       <div class="a">Multi-user access, strong concurrency control, roles/security, ecosystem maturity, extensions, and suitability as a long-running shared database service.</div>
     </div>
     <div class="qa">
@@ -904,12 +904,12 @@ for name, query in queries.items():
   <h2 class="sec-title">Quick-Hit Definitions</h2>
 
   <div class="qa-block">
-    <div class="qa"><div class="q">Q: What is TPC?</div><div class="a">Transaction Processing Performance Council — standards body for database benchmarks (TPC-C, TPC-H, TPC-DS, etc.).</div></div>
+    <div class="qa"><div class="q">Q: What is TPC?</div><div class="a">Transaction Processing Performance Council - standards body for database benchmarks (TPC-C, TPC-H, TPC-DS, etc.).</div></div>
     <div class="qa"><div class="q">Q: What is dbgen?</div><div class="a">The TPC-H data generator. In my project, invoked via DuckDB: <code>CALL dbgen(sf=N)</code>.</div></div>
     <div class="qa"><div class="q">Q: What is a scale factor?</div><div class="a">Multiplier for dataset size. SF≈GB of raw data for TPC-H (SF1 ≈ 1GB).</div></div>
-    <div class="qa"><div class="q">Q: What is wall-clock latency?</div><div class="a">End-to-end elapsed time from starting the query to receiving all results — what my timing loop measured with <code>time.time()</code>.</div></div>
+    <div class="qa"><div class="q">Q: What is wall-clock latency?</div><div class="a">End-to-end elapsed time from starting the query to receiving all results - what my timing loop measured with <code>time.time()</code>.</div></div>
     <div class="qa"><div class="q">Q: What is cold vs warm cache?</div><div class="a">Cold: data read from disk. Warm: data already in memory. Warm runs look faster; fair benchmarks disclose which.</div></div>
-    <div class="qa"><div class="q">Q: What is vectorized execution?</div><div class="a">Process columns in batches (vectors) instead of one row at a time — better CPU cache usage; used by DuckDB-like engines.</div></div>
+    <div class="qa"><div class="q">Q: What is vectorized execution?</div><div class="a">Process columns in batches (vectors) instead of one row at a time - better CPU cache usage; used by DuckDB-like engines.</div></div>
   </div>
 
   <div class="highlight-box">
